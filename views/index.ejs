@@ -1,0 +1,24 @@
+<%- include('header')  %>
+    
+<div class="container p-4 ">
+  <% users.forEach(user => { %>
+    <div class="card mb-3">
+      <div class="card-header bg-dark text-light">
+        <strong>Chatty User</strong>
+      </div>
+      <div class="card-body user-card text-dark">
+        <h5 class="card-title"><%= user.name %></h5>
+        <br>
+        <p class="card-text">Email: <strong><%= user.email  %></strong></p>
+        <p class="card-text">username: <strong><%= user.username %></strong></p>
+        
+        <a href="/chat/<%= user.username %>/<%= user._id%>" class="btn btn-primary">Chat</a>
+      </div>
+    </div>
+  <% }); %>
+</div>
+
+  <script src="/js/app.js"></script>
+
+<%- include('footer')  %>
+

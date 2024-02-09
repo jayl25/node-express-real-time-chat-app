@@ -1,0 +1,37 @@
+<%- include('header')  %>
+<ul id="messages">
+  <% if (messages && messages.length > 0) { %>
+      <% messages.forEach(message => { %>
+
+          <% if (message.senderID === currentUserID) { %>
+              <li class="card m-3 user-message message-card float-right " style="width: 16rem;">
+          <% } else { %>
+              <li class="card m-3 friend-message message-card" style="width: 16rem;">
+          <% } %>
+
+            <strong class="card-header text-light bg-dark">
+              @<%= message.senderUsername %>
+            </strong>
+            <div class="card-body text-light">
+              <h6 class="card-title"><%= message.content %></h6>
+              <p class="card-text"><%= message.sentOn  %></p>
+            </div>
+          </li>
+
+      <% }); %>
+  <% } else { %>
+    <div class="container my-2 mx-auto">
+      <p>
+      No messages available.
+    </p>
+  </div>
+  <% } %>
+</ul>
+
+
+<form id="form" action="/chat/<%= selectedUsername %>/<%= selectedUserId  %>" method="post">
+  <input type="hidden" autocomplete="off" value="<%= roomID  %>" name="chatRoomId"/>
+  <input id="input" autocomplete="off" name="content"/>
+  <button>Send</button>
+</form>
+<%- include('footer')  %>

@@ -1,0 +1,38 @@
+<%- include('header')  %>
+    
+
+    <div class="container my-5">
+        <form action="/account/register" method="post">
+            <div class="mb-3">
+                <label for="fname" class="form-label">First Name</label>
+                <input type="text" class="form-control" name="fname" aria-describedby="fnameHelp" required>
+                <div id="fnameHelp" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label for="lname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" name="lname" aria-describedby="lnameHelp" required>
+                <div id="lnameHelp" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" name="username" aria-describedby="usernameHelp" required>
+                <div id="usernameHelp" class="form-text">10-12 characters long.</div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required>
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" aria-describedby="passwordHelp" required>
+            </div>
+            <div class="mb-3">
+                <label for="cpassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" name="cpassword" aria-describedby="confirmPasswordHelp" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+<%- include('footer')  %>
